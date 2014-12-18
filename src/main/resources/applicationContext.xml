@@ -11,7 +11,7 @@
 
     <context:annotation-config />
 
-    <bean id="service1" class="example.services.MyService">
+    <bean class="example.services.MyService" autowire="byType">
         <property name="count" value="10" />
         <property name="name" value="FirstService" />
         <property name="active" value="true" />
@@ -22,9 +22,8 @@
               <value>first</value>
             </list>
         </property>
-        <property name="component" ref="mycomponent" />
     </bean>
 
-    <bean id="mycomponent" class="example.services.MyComponent" />
+    <bean class="example.services.MyComponent" />
 
 </beans>
