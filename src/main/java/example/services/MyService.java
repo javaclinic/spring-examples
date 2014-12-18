@@ -6,6 +6,9 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class MyService {
 
     private static final Logger LOGGER = Logger.getLogger(MyService.class.getCanonicalName());
@@ -14,6 +17,9 @@ public class MyService {
     private int count;
     private List<String> aliases;
     private boolean active;
+
+    @Autowired
+    @Qualifier("special-component")
     private MyComponent component;
 
     static {
@@ -28,7 +34,7 @@ public class MyService {
     // business method
     public String info() {
         LOGGER.info("Inside info() method.");
-        return String.format("{name=%s,count=%s,aliases=%s,active=%s}",this.name,this.count,this.aliases,this.active);
+        return String.format("{name=%s,count=%s,aliases=%s,active=%s,component=%s}",this.name,this.count,this.aliases,this.active,this.component);
     }
 
     // accessors and mutators
