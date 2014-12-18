@@ -22,6 +22,9 @@
               <value>first</value>
             </list>
         </property>
+        <property name="component" ref="mycomponent" />
     </bean>
+
+    <bean id="mycomponent" class="example.services.MyComponent" />
 
 </beans>
